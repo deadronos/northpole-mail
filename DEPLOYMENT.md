@@ -35,7 +35,13 @@ $env:VITE_BASE='/northpole-mail/'; npm run build
 
 ## First deployment notes
 
-- The workflow will run on `push` to `main` or via `workflow_dispatch`.
+- The workflow runs when a tag matching `v*` (for example `v1.2.3`) is pushed. You can create and push a tag locally with:
+
+```bash
+git tag v1.2.3
+git push --tags
+```
+
 - In some cases the first deployment may require adjusting repository Pages settings or repository token permissions; if the workflow fails with authorization errors, check your repository `Settings → Pages` or add `pages: write` in workflow permissions.
 
 ## Alternatives
