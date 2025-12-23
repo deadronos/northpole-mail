@@ -14,7 +14,9 @@
             background-color: #0f172a;
             color: #f1f5f9;
             margin: 0;
-            overflow: hidden;
+            /* Allow vertical scrolling on small screens while avoiding horizontal overflow */
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         .fira-code { font-family: 'Fira Code', monospace; }
         .snow-overlay {

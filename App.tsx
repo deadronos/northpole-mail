@@ -90,7 +90,7 @@ const App: React.FC = () => {
   }, [state.stressLevel]);
 
   return (
-    <div className="min-h-screen p-4 md:p-8 flex flex-col max-w-7xl mx-auto h-screen relative z-10">
+    <div className="min-h-screen p-4 md:p-8 flex flex-col max-w-7xl mx-auto relative z-10">
       <header className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-3">
           <div className="bg-red-600 p-2 rounded-lg text-white shadow-lg shadow-red-900/20">
@@ -111,8 +111,8 @@ const App: React.FC = () => {
 
       <StatsHeader state={state} />
 
-      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
-        <div className="lg:col-span-4 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden backdrop-blur-md">
+      <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 min-h-0">
+        <div className="lg:col-span-4 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden backdrop-blur-md min-h-0">
           <div className="p-4 border-b border-slate-800 bg-slate-800/20 flex justify-between items-center">
             <h2 className="font-bold text-slate-200 flex items-center gap-2">
               <i className="fas fa-inbox text-blue-400"></i> Active Tickets ({tickets.length})
@@ -123,11 +123,11 @@ const App: React.FC = () => {
               <div 
                 key={ticket.id}
                 onClick={() => handleTicketClick(ticket)}
-                className={`p-4 rounded-xl cursor-pointer border transition-all ${
+                className={`p-3 sm:p-4 rounded-xl cursor-pointer border transition-all ${
                   selectedTicket?.id === ticket.id 
                     ? 'bg-blue-600/20 border-blue-500/50 shadow-lg shadow-blue-900/10' 
                     : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-700/40'
-                }`}
+                }`} 
               >
                 <div className="flex justify-between items-start mb-1">
                   <span className="text-[10px] uppercase font-black text-slate-500">{ticket.sender}</span>
@@ -149,7 +149,7 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-8 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden backdrop-blur-md">
+        <div className="lg:col-span-8 flex flex-col bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden backdrop-blur-md min-h-0">
           {selectedTicket ? (
             <div className="flex flex-col h-full">
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
@@ -199,8 +199,8 @@ const App: React.FC = () => {
                       value={responseText}
                       onChange={(e) => setResponseText(e.target.value)}
                       placeholder="Type your technical wisdom here... (Tip: Keywords like 'DNS', 'Reboot', 'Database' help!)"
-                      className="w-full h-32 bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all resize-none"
-                    ></textarea>
+                      className="w-full h-24 md:h-32 bg-slate-950 border border-slate-800 rounded-xl p-4 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all resize-none"
+                    ></textarea> 
                     <div className="flex justify-end gap-3">
                       <button 
                         onClick={() => setSelectedTicket(null)}
@@ -232,7 +232,7 @@ const App: React.FC = () => {
               <h2 className="text-2xl font-black text-white mb-2">Select a Ticket to Troubleshoot</h2>
               <p className="text-slate-400 max-w-sm">Use your holiday magic and IT expertise to resolve technical issues for the North Pole residents locally.</p>
               
-              <div className="mt-8 grid grid-cols-2 gap-4 w-full max-w-md">
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md">
                 <div className="bg-slate-800/40 p-4 rounded-2xl border border-slate-700 text-left">
                   <p className="text-[10px] font-black uppercase text-slate-500 mb-1">Engineer Tip</p>
                   <p className="text-xs text-slate-300">Custom answers containing technical keywords earn the best ratings!</p>
@@ -247,7 +247,7 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      <footer className="mt-6 flex justify-between items-center text-slate-500 text-[10px] uppercase font-bold tracking-widest">
+      <footer className="mt-6 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0 text-slate-500 text-[10px] uppercase font-bold tracking-widest">
         <div>&copy; 202X North Pole IT Department • Secure Connection</div>
         <div className="flex gap-4">
           <span className="flex items-center gap-1"><i className="fas fa-cookie-bite text-orange-500"></i> Local Engine v2.0</span>
