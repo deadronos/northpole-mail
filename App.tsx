@@ -101,11 +101,24 @@ const App: React.FC = () => {
             <p className="text-xs text-slate-400 font-medium">Holiday Cloud & Sleigh API Solutions</p>
           </div>
         </div>
-        <div className="hidden md:block">
-          <div className="flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700">
-            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <span className="text-sm font-bold text-slate-200">Local Cache: Connected</span>
+        <div className="flex items-center gap-3">
+          <div className="hidden md:block">
+            <div className="flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-full border border-slate-700">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-sm font-bold text-slate-200">Local Cache: Connected</span>
+            </div>
           </div>
+
+          <a
+            href="https://github.com/deadronos/northpole-mail"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View on GitHub"
+            aria-label="View the project on GitHub"
+            className="inline-flex items-center justify-center p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700 border border-slate-700 text-slate-200 transition"
+          >
+            <i className="fab fa-github text-lg"></i>
+          </a>
         </div>
       </header>
 
