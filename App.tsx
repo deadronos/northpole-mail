@@ -5,6 +5,7 @@ import { CANNED_RESPONSES, TICKET_POOL } from './constants';
 import { generateNewLocalTicket, evaluateLocalResponse } from './services/geminiService';
 import StatsHeader from './components/StatsHeader';
 import Terminal from './components/Terminal';
+import Snow from './components/Snow';
 
 const App: React.FC = () => {
   const [state, setState] = useState<GameState>({
@@ -90,7 +91,9 @@ const App: React.FC = () => {
   }, [state.stressLevel]);
 
   return (
-    <div className="min-h-screen p-4 md:p-8 flex flex-col max-w-7xl mx-auto relative z-10">
+    <>
+      <Snow />
+      <div className="min-h-screen p-4 md:p-8 flex flex-col max-w-7xl mx-auto relative z-10">
       <header className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-3">
           <div className="bg-red-600 p-2 rounded-lg text-white shadow-lg shadow-red-900/20">
@@ -268,6 +271,7 @@ const App: React.FC = () => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 
